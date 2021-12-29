@@ -2,15 +2,34 @@ package main
 
 import (
 	"fmt"
-	"strings"
+	"unsafe"
 )
 
-func main() {
-	text := "snow dog sun"
-	afterSplit := strings.Split(text, " ")
-	var result []string
-	for i := len(afterSplit) - 1; i >= 0; i-- {
-		result = append(result, afterSplit[i])
+var justString string
+
+func createHugeString(size int) string {
+	var v string
+	for i := 0; i < size; i++ {
+
+		v += "A"
 	}
-	fmt.Println(result)
+	return v
+}
+
+func someFunc() {
+	v := createHugeString(1 << 10)
+	justString = v[:100]
+
+	fmt.Println("v = ", v)
+	fmt.Println("justString = ", justString)
+	fmt.Println("len(v) = ", len(v))
+	fmt.Println("len(justString) = ", len(justString))
+	fmt.Println("cap(v) = ", cap([]byte(v)))
+	fmt.Println("cap(justString) = ", cap([]byte(justString)))
+	fmt.Println("sizeof(v) = ", unsafe.Sizeof(v))
+	fmt.Println("sizeof(justString) = ", unsafe.Sizeof(justString))
+}
+
+func main() {
+	someFunc()
 }

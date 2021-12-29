@@ -2,11 +2,17 @@ package main
 
 import "fmt"
 
-func kilo(data int) int {
-	return data * 1000
+type kilovolts int
+
+func toKilovolts(data int) kilovolts {
+	return kilovolts(data * 1000)
+}
+
+func something(v kilovolts) {
+	fmt.Printf("value - %d, type - %T", v, v)
 }
 
 func main() {
 	volts := 25
-	fmt.Println("volts is - ", volts, ", but kilovolts is - ", kilo(volts))
+	something(toKilovolts(volts))
 }

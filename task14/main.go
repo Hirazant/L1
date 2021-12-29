@@ -10,4 +10,5 @@ func main() {
 	typ("str")
 	typ(33)
 	typ(33.33)
+	typ(make(chan int))
 }

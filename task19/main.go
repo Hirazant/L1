@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func reverse(str string) string {
 	sliceRune := []rune(str)
