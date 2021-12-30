@@ -9,7 +9,6 @@ func main() {
 	switch switchToOne {
 	case true:
 		number |= 1 << numberOfBite
-
 	default:
 		number &^= 1 << numberOfBite
 	}

@@ -16,6 +16,7 @@ func worker(id int, c chan int) {
 func main() {
 	c := make(chan int)
 	defer close(c)
+	//Выбираем кол-во воркеров
 	N := 20
 
 	for i := 0; i < N; i++ {

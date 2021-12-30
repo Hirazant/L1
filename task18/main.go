@@ -11,6 +11,7 @@ type incr struct {
 
 func (i *incr) increment() {
 	i.i++
+
 }
 
 func main() {

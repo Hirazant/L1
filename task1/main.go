@@ -18,4 +18,6 @@ type Action struct {
 func main() {
 	var a Action
 	a.method1()
+	a.Human.method1()
+
 }

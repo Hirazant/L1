@@ -15,6 +15,7 @@ func waitGoroutine() {
 			wg.Done()
 		}(i)
 	}
+	//Останавливаем горутину и ждем выполнения предыдущих
 	wg.Wait()
 	fmt.Printf("All Done!")
 }

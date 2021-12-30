@@ -7,7 +7,6 @@ import (
 	"time"
 )
 
-// Печатает на стандартный вывод и отправляет int в канал
 func longRunningProcess() error {
 	time.Sleep(time.Second)
 	return errors.New("failed: Too long")
@@ -29,6 +28,7 @@ func main() {
 	go func() {
 		err := longRunningProcess()
 		if err != nil {
+			//longRunningProcess вернул ошибку, закрываем ctx
 			cancel()
 		}
 	}()

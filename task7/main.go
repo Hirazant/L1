@@ -13,19 +13,16 @@ type chanMap struct {
 }
 
 func toData(ch chan chanMap, data map[int]int, sn *sync.Mutex) {
-
 	c := <-ch
 	sn.Lock()
 	data[c.key] = c.value
 	sn.Unlock()
-
 }
 
 func toChanMap(ch chan chanMap) {
 	key := rand.Intn(100)
 	value := rand.Intn(100)
 	ch <- chanMap{key, value}
-
 }
 
 func main() {
